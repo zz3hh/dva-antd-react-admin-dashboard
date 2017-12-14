@@ -26,7 +26,7 @@ export function getTimeDistance(type) {
   if (type == 'month') {
     // 返回当前时间所在的一个月内的开始时间和结束时间
     const nextMonth = moment().add(1, 'M').format('YYYY-MM-01 00:00:00');
-    return [moment(moment.format('YYYY-MM-01 00:00:00')), moment(nextMonth).subtract(1000, 'ms')];
+    return [moment(moment().format('YYYY-MM-01 00:00:00')), moment(nextMonth).subtract(1000, 'ms')];
   }
 
   if (type == 'year') {
@@ -39,7 +39,7 @@ export function getPlainNode(nodeList, parentPath = '') {
   const arr = [];
   nodeList.forEach(node => {
     const item = node;
-    item.path = `${parentPath}/${item.path} || ''`.replace(/\/+/g, '/');
+    item.path = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
     item.exact = true;
     if (item.children && !item.component) {
       arr.push(...getPlainNode(item.children, item.path));
