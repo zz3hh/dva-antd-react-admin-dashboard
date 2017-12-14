@@ -15,5 +15,17 @@ import TimelineChart from './TimelineChart';
 const yuan = val => `&yen; ${numeral(val).format('0,0')}`;
 
 export default {
-    yuan, Bar, Pie, Gauge, Radar, MiniArea, MiniBar, MiniProgress, ChartCard, Field, WaterWave, TagCloud, TimelineChart
+  yuan,
+  Bar,
+  Pie,
+  Gauge,
+  Radar,
+  MiniBar,
+  MiniArea,
+  MiniProgress,
+  ChartCard,
+  Field,
+  WaterWave,
+  TagCloud,
+  TimelineChart,
 };

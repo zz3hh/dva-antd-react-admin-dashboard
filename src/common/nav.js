@@ -48,9 +48,7 @@ export const getNavData = app => [
         name: '帐户',
         icon: 'user',
         path: 'user',
-        children: [
-          
-        ],
+        children: [],
       },
     ],
   },
