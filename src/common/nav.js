@@ -45,7 +45,7 @@ export const getNavData = app => [
           {
             name: '基础表单',
             path: 'basic-form',
-            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/BasicForm'))
+            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/BasicForm')),
           },
           {
             name: '分步表单',
@@ -65,9 +65,9 @@ export const getNavData = app => [
           {
             name: '高级表单',
             path: 'advanced-form',
-            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/AdvancedForm'))
-          }
-        ]
+            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/AdvancedForm')),
+          },
+        ],
       },
       {
         name: '结果',
@@ -82,9 +82,9 @@ export const getNavData = app => [
           {
             name: '失败',
             path: 'fail',
-            component: dynamicWrapper(app, [], () => import('../routes/Result/Error'))
-          }
-        ]
+            component: dynamicWrapper(app, [], () => import('../routes/Result/Error')),
+          },
+        ],
       },
     ],
   },

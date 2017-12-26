@@ -8,7 +8,7 @@ const { Step } = Steps;
 const desc1 = (
   <div style={{ fontSize: 12, color: 'rgba(0,0,0,0.45)', position: 'relative', left: 42 }}>
     <div style={{ margin: '8px 0 4px' }}>
-      曲丽丽<Icon style={{ marginLeft: 8 }} type='dingding-o' />
+      曲丽丽<Icon style={{ marginLeft: 8 }} type="dingding-o" />
     </div>
     <div>2016-12-12 12:32</div>
   </div>
@@ -17,9 +17,9 @@ const desc1 = (
 const desc2 = (
   <div style={{ fontSize: 12, color: 'rgba(0,0,0,0.45)', position: 'relative', left: 42 }}>
     <div style={{ margin: '8px 0 4px' }}>
-      周毛毛<Icon style={{ marginLeft: 8 }} type='dingding-o' />
+      周毛毛<Icon style={{ marginLeft: 8 }} type="dingding-o" />
     </div>
-    <div><a href=''>催一下</a></div>
+    <div><a href="">催一下</a></div>
   </div>
 );
 const extra = (
@@ -42,10 +42,10 @@ const extra = (
       </Col>
     </Row>
     <Steps style={{ marginLeft: -42, width: 'calc(100% + 84px)' }} progressDot current={1}>
-      <Step title={<span style={{ fontSize: 14 }}>创建项目</span>} description={desc1}></Step>
-      <Step title={<span style={{ fontSize: 14 }}>部门初审</span>} description={desc2}></Step>
-      <Step title={<span style={{ fontSize: 14 }}>财务复核</span>}></Step>
-      <Step title={<span style={{ fontSize: 14 }}>完成</span>}></Step>
+      <Step title={<span style={{ fontSize: 14 }}>创建项目</span>} description={desc1} />
+      <Step title={<span style={{ fontSize: 14 }}>部门初审</span>} description={desc2} />
+      <Step title={<span style={{ fontSize: 14 }}>财务复核</span>} />
+      <Step title={<span style={{ fontSize: 14 }}>完成</span>} />
     </Steps>
   </div>
 );

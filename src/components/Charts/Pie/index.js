@@ -100,7 +100,7 @@ class Pie extends Component {
       lineWidth = 0,
     } = this.props;
 
-    let defaultColors = colors;
+    const defaultColors = colors;
 
     let selected = this.props.selected || true;
     let tooltip = this.props.tooltips || true;
@@ -160,7 +160,6 @@ class Pie extends Component {
     chart.axis(false);
     chart.legend(false);
 
-
     chart.source(data, {
       x: {
         type: 'cat',
@@ -212,35 +211,6 @@ class Pie extends Component {
       [styles.legendBlock]: legendBlock,
     });
 
-    const renderLegendData = (item, index) => {
-      if (total === 0) {
-        return <li key={item.x}>
-          <span className={styles.dot} style={{ backgroundColor: !item.checked ? '#aaa' : item.color }} />
-          <span className={styles.legendTitle}>{item.x}</span>
-          <Divider type="vertical" />
-          <span className={styles.percent}>0%</span>
-          <span
-            className={styles.value}
-            dangerouslySetInnerHTML={{
-              __html: valueFormat ? valueFormat(0) : 0,
-            }}
-          />
-        </li>
-      } else {
-        return <li key={item.x} onClick={() => this.handleLegendClick(item, i)}>
-          <span className={styles.dot} style={{ backgroundColor: !item.checked ? '#aaa' : item.color }} />
-          <span className={styles.legendTitle}>{item.x}</span>
-          <Divider type="vertical" />
-          <span className={styles.percent}>{`${(item['..percent'] * 100).toFixed(2)}%`}</span>
-          <span
-            className={styles.value}
-            dangerouslySetInnerHTML={{
-              __html: valueFormat ? valueFormat(item.y) : item.y,
-            }}
-          />
-        </li>
-      }
-    };
     return (
       <div ref={this.handleRoot} className={pieClassName} style={style}>
         <ReactFitText maxFontSize={25}>
@@ -264,7 +234,20 @@ class Pie extends Component {
           hasLegend && (
             <ul className={styles.legend}>
               {
-                legendData.map(renderLegendData)
+                legendData.map((item, i) => (
+                  <li key={item.x} onClick={() => this.handleLegendClick(item, i)}>
+                    <span className={styles.dot} style={{ backgroundColor: !item.checked ? '#aaa' : item.color }} />
+                    <span className={styles.legendTitle}>{item.x}</span>
+                    <Divider type="vertical" />
+                    <span className={styles.percent}>{`${(item['..percent'] * 100).toFixed(2)}%`}</span>
+                    <span
+                      className={styles.value}
+                      dangerouslySetInnerHTML={{
+                        __html: valueFormat ? valueFormat(item.y) : item.y,
+                      }}
+                    />
+                  </li>
+                ))
               }
             </ul>
           )
