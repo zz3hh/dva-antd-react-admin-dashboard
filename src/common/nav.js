@@ -37,6 +37,55 @@ export const getNavData = app => [
           },
         ],
       },
+      {
+        name: '表单页',
+        path: 'form',
+        icon: 'form',
+        children: [
+          {
+            name: '基础表单',
+            path: 'basic-form',
+            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/BasicForm'))
+          },
+          {
+            name: '分步表单',
+            path: 'step-form',
+            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/StepForm')),
+            children: [
+              {
+                path: 'confirm',
+                component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/StepForm/Step2')),
+              },
+              {
+                path: 'result',
+                component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/StepForm/Step3')),
+              },
+            ],
+          },
+          {
+            name: '高级表单',
+            path: 'advanced-form',
+            component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/AdvancedForm'))
+          }
+        ]
+      },
+      {
+        name: '结果',
+        path: 'result',
+        icon: 'check-circle-o',
+        children: [
+          {
+            name: '成功',
+            path: 'success',
+            component: dynamicWrapper(app, [], () => import('../routes/Result/Success')),
+          },
+          {
+            name: '失败',
+            path: 'fail',
+            component: dynamicWrapper(app, [], () => import('../routes/Result/Error'))
+          }
+        ]
+      },
     ],
   },
   {

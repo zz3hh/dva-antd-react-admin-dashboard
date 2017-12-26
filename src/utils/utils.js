@@ -12,24 +12,24 @@ export function fixedZero(val) {
 export function getTimeDistance(type) {
   const now = new Date();
 
-  if (type == 'day') {
+  if (type === 'day') {
     // 返回当前时间到今天的结束时间 【now,end of today】
     return [moment(new Date()), moment(moment().format('YYYY-MM-DD 23:59:59'))];
   }
 
-  if (type == 'week') {
+  if (type === 'week') {
     // 返回当前时间所在的一周的开始时间和结束时间
     const dayOfweek = moment().weekday();
     return [moment().subtract(dayOfweek - 1, 'day').format('YYYY-MM-DD 00:00:00'), moment().add(7 - dayOfweek, 'day').format('YYYY-MM-DD 23:59:59')];
   }
 
-  if (type == 'month') {
+  if (type === 'month') {
     // 返回当前时间所在的一个月内的开始时间和结束时间
     const nextMonth = moment().add(1, 'M').format('YYYY-MM-01 00:00:00');
     return [moment(moment().format('YYYY-MM-01 00:00:00')), moment(nextMonth).subtract(1000, 'ms')];
   }
 
-  if (type == 'year') {
+  if (type === 'year') {
     const year = now.getFullYear();
     return [moment(`${year}-01-01 00:00:00`), moment(`${year}-12-31 23:59:59`)];
   }
@@ -37,7 +37,7 @@ export function getTimeDistance(type) {
 
 export function getPlainNode(nodeList, parentPath = '') {
   const arr = [];
-  nodeList.forEach(node => {
+  nodeList.forEach((node) => {
     const item = node;
     item.path = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
     item.exact = true;
