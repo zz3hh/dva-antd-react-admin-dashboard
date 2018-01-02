@@ -70,6 +70,23 @@ export const getNavData = app => [
         ],
       },
       {
+        name: '详情页',
+        path: 'profile',
+        icon: 'profile',
+        children: [
+          {
+            name: '基础详情页',
+            path: 'basic',
+            component:dynamicWrapper(app,['profile'],()=>import('../routes/Profile/BasicProfile')),
+          },
+          {
+            name:'高级详情页',
+            path:'advanced',
+            component:dynamicWrapper(app,['profile'],()=>import('../routes/Profile/AdvancedProfile'))
+          },
+        ],
+      },
+      {
         name: '结果',
         path: 'result',
         icon: 'check-circle-o',
@@ -83,6 +100,28 @@ export const getNavData = app => [
             name: '失败',
             path: 'fail',
             component: dynamicWrapper(app, [], () => import('../routes/Result/Error')),
+          },
+        ],
+      },
+      {
+        name: '异常页',
+        path: 'exception',
+        icon: 'warning',
+        children: [
+          {
+            name: '403',
+            path: '403',
+            component: dynamicWrapper(app, [], () => import('../routes/Exception/403')),
+          },
+          {
+            name: '404',
+            path: '404',
+            component: dynamicWrapper(app, [], () => import('../routes/Exception/404')),
+          },
+          {
+            name: '500',
+            path: '500',
+            component: dynamicWrapper(app, [], () => import('../routes/Exception/500')),
           },
         ],
       },
