@@ -64,7 +64,7 @@ const tabList = [{
   tab: '详情',
 }, {
   key: 'rule',
-  tab: '规则'
+  tab: '规则',
 }];
 
 const desc1 = (
@@ -161,7 +161,7 @@ export default class AdvancedProfile extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.stepDirection);
-    this.stepDirection.cancel;
+    this.setStepDirection.cancel();
   }
 
   onOperationTabChange = (key) => {

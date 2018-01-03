@@ -17,4 +17,4 @@ export default ({ className, title, col = 3, layout = 'horizontal', gutter = 32,
       </Row>
     </div>
   );
-}
+};

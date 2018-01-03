@@ -77,12 +77,12 @@ export const getNavData = app => [
           {
             name: '基础详情页',
             path: 'basic',
-            component:dynamicWrapper(app,['profile'],()=>import('../routes/Profile/BasicProfile')),
+            component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/BasicProfile')),
           },
           {
-            name:'高级详情页',
-            path:'advanced',
-            component:dynamicWrapper(app,['profile'],()=>import('../routes/Profile/AdvancedProfile'))
+            name: '高级详情页',
+            path: 'advanced',
+            component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/AdvancedProfile')),
           },
         ],
       },
@@ -136,7 +136,23 @@ export const getNavData = app => [
         name: '帐户',
         icon: 'user',
         path: 'user',
-        children: [],
+        children: [
+          {
+            name:'登录',
+            path:'login',
+            component:dynamicWrapper(app,['login'],()=>import('../routes/User/Login')),
+          },
+          {
+            name:'注册',
+            path:'register',
+            component:dynamicWrapper(app,['register'],()=>import('../routes/User/Register')),
+          },
+          {
+            name:'注册结果',
+            path:'register-result',
+            component:dynamicWrapper(app,[],()=>import('../routes/User/RegisterResult')),
+          },
+        ],
       },
     ],
   },

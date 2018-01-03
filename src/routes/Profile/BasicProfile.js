@@ -14,16 +14,14 @@ const progressColumns = [{
 }, {
   title: '当前进度',
   dataIndex: 'rate',
-  key: 'rate'
+  key: 'rate',
 }, {
   title: '状态',
   dataIndex: 'status',
   key: 'status',
-  render: (text, row, index) => {
-    return (
-      text === 'success' ? <Badge status="success" text='成功' /> : <Badge status="processing" text="进行中" />
-    );
-  },
+  render: text => (
+    text === 'success' ? <Badge status="success" text="成功" /> : <Badge status="processing" text="进行中" />
+  ),
 }, {
   title: '操作员ID',
   dataIndex: 'operator',
@@ -35,7 +33,7 @@ const progressColumns = [{
 }];
 
 @connect(state => ({
-  profile: state.profile
+  profile: state.profile,
 }))
 export default class BasicProfile extends Component {
   componentDidMount() {
@@ -68,7 +66,7 @@ export default class BasicProfile extends Component {
     const renderContent = (value, row, index) => {
       const obj = {
         children: value,
-        props: {}
+        props: {},
       };
       if (index === basicGoods.length) {
         obj.props.colSpan = 0;
@@ -81,16 +79,15 @@ export default class BasicProfile extends Component {
       dataIndex: 'id',
       key: 'id',
       render: (text, row, index) => {
-
         if (index < basicGoods.length) {
           return <a href="">{text}</a>;
         }
         return {
           children: <span style={{ fontWeight: 600 }}>总计</span>,
           props: {
-            colSpan: 4
-          }
-        }
+            colSpan: 4,
+          },
+        };
       },
     }, {
       title: '商品名称',
@@ -118,7 +115,7 @@ export default class BasicProfile extends Component {
           return text;
         }
         return <span style={{ fontWeight: 600 }}>{text}</span>;
-      }
+      },
     }, {
       title: '金额',
       dataIndex: 'amount',
@@ -128,7 +125,7 @@ export default class BasicProfile extends Component {
         if (index < basicGoods.length) {
           return text;
         }
-        return <span style={{ fontWeight: 600 }}>{text}</span>
+        return <span style={{ fontWeight: 600 }}>{text}</span>;
       },
     }];
 
