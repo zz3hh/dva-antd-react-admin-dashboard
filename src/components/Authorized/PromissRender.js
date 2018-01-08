@@ -21,7 +21,7 @@ export default class PromiseRender extends React.PureComponent {
   }
 
   render() {
-    const C = this.props.component;
+    const C = this.state.component;
     return C ? (
       <C {...this.props} />
     ) : (
@@ -31,8 +31,9 @@ export default class PromiseRender extends React.PureComponent {
           height: '100%',
           margin: 'auto',
           paddingTop: 50,
-          textAlign: 'center'
-        }}>
+          textAlign: 'center',
+        }}
+      >
         <Spin size="large" />
       </div>
     );

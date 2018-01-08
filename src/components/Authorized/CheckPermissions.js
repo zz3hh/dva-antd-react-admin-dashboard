@@ -39,11 +39,11 @@ const checkPermissons = (authority, currentAuthority, target, Exception) => {
     }
   }
   throw new Error('unsupported perameters');
-}
+};
 
 export { checkPermissons };
 const check = (authority, target, Exception) => {
   return checkPermissons(authority, CURRENT, target, Exception);
-}
+};
 
 export default check;

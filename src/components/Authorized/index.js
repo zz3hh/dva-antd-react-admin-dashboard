@@ -23,7 +23,7 @@ const renderAuthorize = (currentAuthority) => {
     CURRENT = 'NULL';
   }
   return Authorized;
-}
+};
 
 export { CURRENT };
 

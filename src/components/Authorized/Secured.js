@@ -15,6 +15,8 @@ const authorize = (authority, error) => {
     throw new Error('authority is required');
   }
   return function decideAuthority(target) {
-    return CheckPermissions(authority, target, classError || Exception);
-  }
-}
+    return CheckPermissions(authority, target, classError || Exception403);
+  };
+};
+
+export default authorize;
