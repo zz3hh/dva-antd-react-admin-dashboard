@@ -97,7 +97,6 @@ export function getFakeList(req, res, u) {
   }
 
   const params = getUrlParams(url);
-
   const count = (params.count * 1) || 20;
 
   const result = fakeList(count);

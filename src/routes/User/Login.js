@@ -30,7 +30,7 @@ export default class Lgoin extends Component {
     this.setState({ count });
     this.interval = setInterval(() => {
       count -= 1;
-      this, setState({ count });
+      this.setState({ count });
       if (count === 0) {
         clearInterval(this.interval);
       }
@@ -73,7 +73,7 @@ export default class Lgoin extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Tabs animated={false} className={styles.tabs} activeKey={type} onChange={this.onSwitch}>
             <TabPane tab="账号密码登录" key="account">
-              {login.status === 'error' && login.type === "account" && login.submmitting === false && this.renderMessage('账号或密码错误')}
+              {login.status === 'error' && login.type === 'account' && login.submmitting === false && this.renderMessage('账号或密码错误')}
               <FormItem>
                 {getFieldDecorator('userName', {
                   rules: [{
@@ -84,7 +84,7 @@ export default class Lgoin extends Component {
               <FormItem>
                 {getFieldDecorator('password', {
                   rules: [{
-                    required: type === "account", message: '请输入密码',
+                    required: type === 'account', message: '请输入密码',
                   }],
                 })(<Input size="large" prefix={<Icon type="lock" className={styles.prefixIcon} />} placeholder="888888" />)}
               </FormItem>
@@ -111,7 +111,7 @@ export default class Lgoin extends Component {
                       rules: [{
                         required: type === 'mobile', message: '请输入验证码',
                       }],
-                    })(<Input size='large' prefix={<Icon type="mail" className={styles.prefixIcon} placeholder="验证码" />} />)}
+                    })(<Input size="large" prefix={<Icon type="mail" className={styles.prefixIcon} placeholder="验证码" />} />)}
                   </Col>
                   <Col span={8}>
                     <Button disabled={count} className={styles.getCaptcha} size="large" onClick={this.onGetCaptcha}>

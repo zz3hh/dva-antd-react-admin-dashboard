@@ -70,6 +70,43 @@ export const getNavData = app => [
         ],
       },
       {
+        name: '列表页',
+        path: 'list',
+        icon: 'table',
+        children: [
+          {
+            name: '查询表格',
+            path: 'table-list',
+            component: dynamicWrapper(app, ['rule'], () => import('../routes/List/TableList')),
+          },
+          {
+            name: '标准列表',
+            path: 'basic-list',
+            component: dynamicWrapper(app, ['list'], () => import('../routes/List/BasicList')),
+          },
+          {
+            name: '卡片列表',
+            path: 'card-list',
+            component: dynamicWrapper(app, ['list'], () => import('../routes/List/CardList')),
+          },
+          {
+            name: '搜索列表（项目）',
+            path: 'cover-card-list',
+            component: dynamicWrapper(app, ['list'], () => import('../routes/List/CoverCardList')),
+          },
+          {
+            name: '搜索列表（应用）',
+            path: 'filter-card-list',
+            component: dynamicWrapper(app, ['list'], () => import('../routes/List/FilterCardList')),
+          },
+          {
+            name: '搜索列表（文章）',
+            path: 'search',
+            component: dynamicWrapper(app, ['list'], () => import('../routes/List/SearchList')),
+          },
+        ],
+      },
+      {
         name: '详情页',
         path: 'profile',
         icon: 'profile',
@@ -138,19 +175,19 @@ export const getNavData = app => [
         path: 'user',
         children: [
           {
-            name:'登录',
-            path:'login',
-            component:dynamicWrapper(app,['login'],()=>import('../routes/User/Login')),
+            name: '登录',
+            path: 'login',
+            component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
           },
           {
-            name:'注册',
-            path:'register',
-            component:dynamicWrapper(app,['register'],()=>import('../routes/User/Register')),
+            name: '注册',
+            path: 'register',
+            component: dynamicWrapper(app, ['register'], () => import('../routes/User/Register')),
           },
           {
-            name:'注册结果',
-            path:'register-result',
-            component:dynamicWrapper(app,[],()=>import('../routes/User/RegisterResult')),
+            name: '注册结果',
+            path: 'register-result',
+            component: dynamicWrapper(app, [], () => import('../routes/User/RegisterResult')),
           },
         ],
       },

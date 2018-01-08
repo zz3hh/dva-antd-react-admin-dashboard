@@ -30,7 +30,7 @@ export default class Register extends Component {
     confirmDirty: false,
     visible: false,
     help: '',
-    prefix: '86'
+    prefix: '86',
   };
 
   componentWillReceiveProps(nextProps) {
@@ -175,9 +175,7 @@ export default class Register extends Component {
                 <div style={{ padding: '4px 0' }}>
                   {passwordStatusMap[this.getPasswordStatus()]}
                   {this.renderPassWordProgress()}
-                  <div style={{ marginTop: 10 }}>
-                    请至少输入6个字符。请不要使用容易被猜到的密码
-                </div>
+                  <div style={{ marginTop: 10 }}>请至少输入6个字符。请不要使用容易被猜到的密码</div>
                 </div>
               }
               overlayStyle={{ width: 240 }}
@@ -187,7 +185,7 @@ export default class Register extends Component {
               {getFieldDecorator('password', {
                 rules: [{
                   validator: this.checkPassWord,
-                },],
+                }],
               })(<Input size="large" type="password" placeholder="至少6位密码，区分大小写" />)}
             </Popover>
           </FormItem>
@@ -198,7 +196,7 @@ export default class Register extends Component {
                 message: '请输入密码！',
               }, {
                 validator: this.checkConfirm,
-              },],
+              }],
             })(<Input size="large" type="password" placeholder="确认密码" />)}
           </FormItem>
           <FormItem>
@@ -214,7 +212,7 @@ export default class Register extends Component {
                 }, {
                   pattern: /^1\d{10}$/,
                   message: '手机号格式错误',
-                },],
+                }],
               })(<Input size="large" style={{ width: '80%' }} placeholder="11位手机号" />)}
             </InputGroup>
           </FormItem>
@@ -237,7 +235,7 @@ export default class Register extends Component {
           </FormItem>
           <FormItem>
             <Button size="large" loading={register.submitting} className={styles.submit} type="primary" htmlType="submit">注册</Button>
-            <Link className={styles.login} to='/user/login'>使用已有账号登录</Link>
+            <Link className={styles.login} to="/user/login">使用已有账号登录</Link>
           </FormItem>
         </Form>
       </div>
